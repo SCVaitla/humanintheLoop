@@ -12,7 +12,6 @@ export default function SiteHeader() {
   const Nav = () => (
     <nav className="flex items-center gap-6 text-sm">
       <Link to="/" className="hover:text-foreground/80 text-foreground/60">Home</Link>
-      <Link to="/tools" className="hover:text-foreground/80 text-foreground/60">Tools</Link>
     </nav>
   );
 
@@ -31,9 +30,6 @@ export default function SiteHeader() {
       <div className="flex items-center gap-3">
         <div className="text-right leading-tight hidden sm:block">
           <div className="text-sm font-medium">{user.email}</div>
-          <div className="text-[11px] -mt-0.5 text-muted-foreground">
-            Signed in with {user.auth === "google" ? "Google" : "Email"}
-          </div>
         </div>
         <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-purple-600 to-fuchsia-500 text-white grid place-items-center text-sm font-semibold">
           {initials}

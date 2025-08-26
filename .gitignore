@@ -24,6 +24,3 @@ env/
 Thumbs.db
 .vscode/
 .idea/
-
-# Others you want hidden
-src/pages/Auth/

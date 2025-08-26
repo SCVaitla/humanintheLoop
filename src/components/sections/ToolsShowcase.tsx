@@ -20,7 +20,7 @@ const TOOL_META: Record<
   }
 > = {
   resume: {
-    title: "Automated Resume Builder",
+    title: "Profile 360",
     tagline:
       "Create professional, ATS-optimized documents that spotlight your strengths.",
     href: "/tools/resume-builder",
