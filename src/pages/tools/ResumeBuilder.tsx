@@ -6,8 +6,7 @@ import { Sparkles, Target, Zap } from "lucide-react";
 
 export default function ResumeBuilder() {
   const handleStartResumeBuilder = () => {
-    // Replace 3000 with whatever port your second project runs on
-    window.location.href = 'http://localhost:3000';
+    window.location.href = 'https://profile360.aification.ai';
   };
 
   const handleViewTemplates = () => {
@@ -67,13 +66,6 @@ export default function ResumeBuilder() {
             >
               <Sparkles className="w-5 h-5 mr-2" />
               Start Building Resume
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={handleViewTemplates}
-            >
-              View Templates
             </Button>
           </div>
         </div>

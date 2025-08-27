@@ -127,15 +127,7 @@ export default function ToolsShowcase() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 text-xl px-12 py-6 rounded-2xl"
-                onClick={() => {
-                  if (tool.id === 'resume-builder') {
-                    window.location.href = 'http://localhost:3000';
-                  } else if (tool.id === 'profile-seo') {
-                    window.location.href = 'http://localhost:3000';
-                  } else {
-                    window.location.href = `/tools/${tool.id}`;
-                  }
-                }}
+                onClick={() => (window.location.href = "https://profile360.aification.ai")}
               >
                 Try {tool.title} Now →
               </Button>
@@ -162,7 +154,7 @@ export default function ToolsShowcase() {
                 <Button
                   size="lg"
                   className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-5 text-xl shadow-xl rounded-2xl"
-                  onClick={() => window.location.href = "/signup"}
+                  onClick={() => window.location.href = "https://profile360.aification.ai"}
                 >
                   Start Free Trial
                 </Button>

@@ -15,7 +15,7 @@ export default function Hero() {
             human expertise to deliver real results.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/signup"><Button size="xl" className="shadow">Start Free</Button></Link>
+            <Link to="https://profile360.aification.ai"><Button size="xl" className="shadow">Start Free</Button></Link>
             <Link to="/tools/resume-builder"><Button size="xl" variant="outline">Explore Tools</Button></Link>
           </div>
         </div>
