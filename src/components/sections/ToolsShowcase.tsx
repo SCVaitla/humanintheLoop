@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FileText, Search, ShieldCheck, Wand2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 type ToolKey = "resume" | "seo";
 
@@ -24,13 +24,13 @@ const TOOL_META: Record<
     tagline:
       "Create professional, ATS-optimized documents that spotlight your strengths.",
     href: "/tools/resume-builder",
-    cta: "Open Resume Builder",
+    cta: "More Info →",
     icon: FileText,
     highlights: [
       "Role-aware templates with clean typography",
       "Keyword targeting for ATS",
       "Impact bullets suggested by AI",
-      "Export to PDF / DOCX (connect backend)",
+      "Export to PDF / DOCX",
     ],
     metrics: [
       { label: "ATS Readability", value: "A" },
@@ -45,17 +45,8 @@ const TOOL_META: Record<
     href: "/signup",
     cta: "Optimize My Profile",
     icon: Search,
-    highlights: [
-      "AI keyword discovery for your niche",
-      "Profile completeness guidance",
-      "Rich snippets & link hygiene checklist",
-      "Multi-platform tips (LinkedIn, Google, personal site)",
-    ],
-    metrics: [
-      { label: "Search Visibility", value: "A+" },
-      { label: "Priority Keywords", value: "12" },
-      { label: "Profile Score", value: "94%" },
-    ],
+    highlights: [],
+    metrics: [],
   },
 };
 
@@ -83,8 +74,8 @@ export default function ToolsShowcase() {
   const ActiveIcon = tool.icon;
 
   return (
-    <section className="container mx-auto py-12">
-      <div className="mb-2 flex items-center gap-2">
+    <section className="container py-12">
+      <div className="mb-2 flex items-center gap-1">
         <Badge variant="secondary" className="bg-purple-100 text-purple-700">
           Profile 360 Suite
         </Badge>
@@ -97,7 +88,7 @@ export default function ToolsShowcase() {
 
       {/* Split layout: left selector / right detail */}
       <div className="mt-8 grid gap-6 md:grid-cols-[280px,1fr]">
-        {/* Left: vertical selector (buttons) */}
+        {/* Left: vertical selector */}
         <div className="space-y-2">
           {(Object.keys(TOOL_META) as ToolKey[]).map((k) => {
             const Icon = TOOL_META[k].icon;
@@ -125,50 +116,67 @@ export default function ToolsShowcase() {
 
         {/* Right: detail panel */}
         <div className="rounded-2xl border bg-card/60 p-6 shadow-sm">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/10">
-                <ActiveIcon className="h-5 w-5 text-purple-700" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">{tool.title}</h3>
-                <p className="text-sm text-muted-foreground">{tool.tagline}</p>
-              </div>
+          {active === "seo" ? (
+            <div className="flex flex-col items-center justify-center h-full text-center py-12">
+              <Search className="h-8 w-8 text-purple-700 mb-4" />
+              <h3 className="text-lg font-semibold">
+                SEO Optimized Digital Profile
+              </h3>
+              <p className="text-sm text-muted-foreground">Coming soon...</p>
             </div>
-            <Link to={tool.href}>
-              <Button className="whitespace-nowrap">{tool.cta}</Button>
-            </Link>
-          </div>
+          ) : (
+            <>
+              {/* Header row: icon + text + button aligned to far right */}
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600/10">
+                    <ActiveIcon className="h-5 w-5 text-purple-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">{tool.title}</h3>
+                    <p className="text-sm text-muted-foreground">{tool.tagline}</p>
+                  </div>
+                </div>
 
-          <Separator className="my-6" />
-
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div>
-              <div className="text-sm font-semibold">Highlights</div>
-              <ul className="mt-3 space-y-3">
-                {tool.highlights.map((h) => (
-                  <Bullet key={h}>{h}</Bullet>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <div className="text-sm font-semibold">Snapshot</div>
-              <div className="mt-3 grid grid-cols-3 gap-3">
-                {tool.metrics.map((m) => (
-                  <Metric key={m.label} label={m.label} value={m.value} />
-                ))}
+                {/* Client-side navigation to resume builder */}
+                <Button
+                  asChild
+                  variant="default"
+                  size="sm"
+                  className="bg-purple-600 hover:bg-purple-700 text-white text-xs font-medium px-4 py-2 rounded-md"
+                >
+                  <Link to={tool.href}>{tool.cta}</Link>
+                </Button>
               </div>
-              <p className="mt-3 text-xs text-muted-foreground">
-                *Example data; connect backend to power live insights.
-              </p>
-            </div>
-          </div>
 
-          <div className="mt-6 flex flex-wrap gap-2 text-xs text-muted-foreground">
-            <span className="rounded-full border px-2 py-1">Privacy-minded</span>
-            <span className="rounded-full border px-2 py-1">Designed for Outcomes</span>
-          </div>
+              <Separator className="my-6" />
+
+              <div className="grid gap-8 lg:grid-cols-2">
+                <div>
+                  <div className="text-sm font-semibold">Highlights</div>
+                  <ul className="mt-3 space-y-3">
+                    {tool.highlights.map((h) => (
+                      <Bullet key={h}>{h}</Bullet>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="text-sm font-semibold">Snapshot</div>
+                  <div className="mt-3 grid grid-cols-3 gap-3">
+                    {tool.metrics.map((m) => (
+                      <Metric key={m.label} label={m.label} value={m.value} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs text-muted-foreground">
+                <span className="rounded-full border px-2 py-1">Privacy-minded</span>
+                <span className="rounded-full border px-2 py-1">Designed for Outcomes</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>

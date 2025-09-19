@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Profile360 from "@/components/sections/Profile360";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sparkles, Target, Zap } from "lucide-react";
@@ -99,7 +98,6 @@ export default function ResumeBuilder() {
       </Card>
 
       <div className="my-10 h-px bg-border" />
-      <Profile360 />
     </section>
   );
 }
